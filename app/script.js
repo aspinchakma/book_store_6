@@ -59,6 +59,15 @@ const displayResult = (result) => {
         totalResult.appendChild(div)
         result.forEach(book => {
 
+            // handle undefined publisher
+            const unknownPublisher = book.publisher ? book.publisher[0] : 'Unknown Publisher';
+
+            // handle undefined author name
+            const unknownAuthor = book.author_name ? book.author_name : 'Unknown Author';
+
+            // handle undefined publication
+            const unknownPubcation = book.first_publish_year ? book.first_publish_year : 'Unknown Publication Year';
+
             const div = document.createElement('div');
             div.className = 'hello';
             if (book.cover_i === undefined) {
@@ -68,9 +77,9 @@ const displayResult = (result) => {
                         <img src="images/images.jfif" class="card-img-top" height="320px" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Book Name: <span>${book.title}</span></h5>
-                            <p class="card-text">Author: <span>${book.author_name}</span></p>
-                            <p class="card-text">Publication: <span>${book.first_publish_year}</span></p>
-                            <p class="card-text">Publisher: <span>${book.publisher}</span></p>
+                            <p class="card-text">Author: <span>${unknownAuthor}</span></p>
+                            <p class="card-text">Publication: <span>${unknownPubcation}</span></p>
+                            <p class="card-text">Publisher: <span>${unknownPublisher}</span></p>
 
                         </div>
                     </div>
@@ -83,9 +92,9 @@ const displayResult = (result) => {
                             <img src="${getImages(book.cover_i)}" class="card-img-top" height="320px" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Book Name: <span>${book.title}</span></h5>
-                                <p class="card-text">Author: <span>${book.author_name}</span></p>
-                                <p class="card-text">Publication: <span>${book.first_publish_year}</span></p>
-                                <p class="card-text">Publisher: <span>${book.publisher}</span></p>
+                                <p class="card-text">Author: <span>${unknownAuthor}</span></p>
+                                <p class="card-text">Publication: <span>${unknownPubcation}</span></p>
+                                <p class="card-text">Publisher: <span>${unknownPublisher}</span></p>
     
                             </div>
                         </div>
