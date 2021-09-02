@@ -37,7 +37,7 @@ searchButton.addEventListener('click', () => {
 
 // Get result from API
 const getSearchResult = (bookName) => {
-    const url = `http://openlibrary.org/search.json?q=${bookName}`;
+    const url = `https://openlibrary.org/search.json?q=${bookName}`;
     fetch(url)
         .then(response => response.json())
         .then(data => displayResult(data.docs))
